@@ -4,6 +4,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
+import org.junit.After;
+import org.junit.Before;
+import org.openqa.selenium.WebDriver;
 import starter.actions.HomepageSteps;
 import starter.actions.SearchSteps;
 import starter.pageobjects.Homepage;
@@ -14,24 +17,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class HomepageStepDefinitions {
 
+
     @Steps
     HomepageSteps homepageSteps;
-    SearchSteps search;
+
     @Given("^(?:.*) is researching things on the internet")
     public void researchingThings()
     {
         homepageSteps.opensTheHomePage();
-    }
-
-    @When("^(?:.*) looks up \"(.*)\"")
-    public void searchesFor(String term) {
-        search.searchForTerm(term);
-    }
-
-    @Then("^(?:.*) should see information about \"(.*)\"")
-    public void should_see_information_about(String term) {
-        assertThat(search.getSearchResults()).anyMatch(title -> title.toLowerCase().contains(term));
-
     }
 
     @Given("The user is on Lexisnexis homepage")
@@ -48,7 +41,8 @@ public class HomepageStepDefinitions {
 
     }
     @Then("The user should be able to see the below {string}")
-    public void the_user_should_be_able_to_see_the_below(String string) {
-
+    public void the_user_should_be_able_to_see_the_below(String title) {
+        homepageSteps.genericSearch(title);
+        homepageSteps.getDriver().close();
     }
 }
