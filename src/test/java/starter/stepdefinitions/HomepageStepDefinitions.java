@@ -7,19 +7,15 @@ import net.serenitybdd.annotations.Steps;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import starter.actions.FinancialServicesSteps;
 import starter.actions.HomepageSteps;
-import starter.actions.SearchSteps;
-import starter.pageobjects.Homepage;
-
-import java.time.Duration;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class HomepageStepDefinitions {
 
 
     @Steps
     HomepageSteps homepageSteps;
+    FinancialServicesSteps financialServicesSteps;
 
     @Given("^(?:.*) is researching things on the internet")
     public void researchingThings()
@@ -38,11 +34,20 @@ public class HomepageStepDefinitions {
     }
     @When("The  user chooses Financial Services")
     public void the_user_chooses_financial_services() {
-
+        homepageSteps.the_user_chooses_financial_srvices();
+        System.out.println("Completed Choosing financial services");
+        //financialServicesSteps.verify_financial_srvices_titles();
     }
     @Then("The user should be able to see the below {string}")
     public void the_user_should_be_able_to_see_the_below(String title) {
         homepageSteps.genericSearch(title);
+        homepageSteps.getDriver().close();
+    }
+
+    //
+    @Then("The user should be able to verify all the titles")
+    public void the_user_verifies_all_the_titles() {
+        homepageSteps.userVerifyTtiles();
         homepageSteps.getDriver().close();
     }
 }
