@@ -35,7 +35,6 @@ public class HomepageStepDefinitions {
     @When("The  user chooses Financial Services")
     public void the_user_chooses_financial_services() {
         homepageSteps.the_user_chooses_financial_srvices();
-        System.out.println("Completed Choosing financial services");
         //financialServicesSteps.verify_financial_srvices_titles();
     }
     @Then("The user should be able to see the below {string}")

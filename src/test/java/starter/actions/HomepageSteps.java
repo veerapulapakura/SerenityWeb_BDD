@@ -31,8 +31,6 @@ public class HomepageSteps extends UIInteractionSteps {
     @Step("The  user chooses financial services")
     public void the_user_chooses_financial_srvices() {
         withTimeoutOf(Duration.ofSeconds(10));
-        System.out.println("Hello");
-        System.out.println(find(Homepage.FINANCIAL_SERVICES).getText());
         find(Homepage.FINANCIAL_SERVICES).click();
     }
 

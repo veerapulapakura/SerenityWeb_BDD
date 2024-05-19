@@ -18,12 +18,14 @@ public class Homepage extends PageObject{
     //WebDriverWait wait = new WebDriverWait(driver,10); // 10-second explicit wait
     public static final By CHOOSE_YOUR_INDUSTRY = By.xpath("//a[contains(text(),'Choose Your Industry')]");
     public static final By COOKIES = By.id("onetrust-accept-btn-handler");
-    public static final By FINANCIAL_SERVICES = By.xpath("//*[@class='nav nav-pills nav-stacked']/li[3]//a[@data-industryid='{4D5E7A25-6576-4637-9149-6AB8E198E48D}']");
 
+    public static final By FINANCIAL_SERVICES = By.xpath("//div[@class='subpage-title'][normalize-space()='Financial Services']");
     public static final By INSURANCE = By.xpath("//a[contains(text(),'Insurance')]");
     public static final By LIFE_AND_PENSIONS = By.xpath("//a[contains(text(),'Life and Pensions')]");
     public static final By CORPORATIONS_AND_NONPROFITS = By.xpath("//a[contains(text(),'Corporations and Non-Profits')]");
     public static final By ALL_UNDER_INDUSTRY = By.xpath("//a[contains(text(),'Corporations and Non-Profits')]");
+
+    public static final By LIST_UNDER_FINANCIALSERVICES = By.xpath("//div[@id='{4D5E7A25-6576-4637-9149-6AB8E198E48D}']//*[contains(@class, 'level-1 score-section-menu')]");
 
     @Override
     public WebDriver getDriver() {
